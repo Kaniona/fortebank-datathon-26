@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Тексеру нәтижесі — ForteVision{% endblock %}
+
+{% block content %}
+<div class="case-head">
+    <a class="back-link" href="/">← Жаңа бейне</a>
+    <span class="case-id">Тапсырма <b id="jobIdDisplay">{{ job_id }}</b></span>
+</div>
+
+<section class="glass glass--edge processing" id="resultStatus" aria-live="polite">
+    <div class="ring">
+        <div class="ring__orbit" aria-hidden="true"></div>
+        <svg viewBox="0 0 220 220" aria-hidden="true">
+            <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3166E"/><stop offset=".5" stop-color="#B12AD6"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs>
+            <circle class="ring__track" cx="110" cy="110" r="96"/>
+            <circle class="ring__value" id="ringValue" cx="110" cy="110" r="96" stroke="url(#ringGrad)"/>
+        </svg>
+        <div class="ring__center"><div><span class="ring__pct" id="procPct">0%</span><span class="ring__label">талдау</span></div></div>
+    </div>
+    <div>
+        <h1 class="processing__title" id="procTitle">Бейне талдануда</h1>
+        <p class="processing__text" id="procText">Әдетте 30–90 секунд алады. Бетті жаппаңыз — нәтиже өзі ашылады.</p>
+        <ol class="steps" id="steps">
+            <li class="step" data-step="0"><span class="step__dot">1</span>Модельдер жүктелуде</li>
+            <li class="step" data-step="1"><span class="step__dot">2</span>Адамдар мен қимылдар анықталуда</li>
+            <li class="step" data-step="2"><span class="step__dot">3</span>Көрініс пен есік талдануда</li>
+            <li class="step" data-step="3"><span class="step__dot">4</span>Үстелдегі заттар тексерілуде</li>
+            <li class="step" data-step="4"><span class="step__dot">5</span>Дәлел кадрлары дайындалуда</li>
+        </ol>
+    </div>
+</section>
+
+<section id="resultContent" hidden>
+    <div class="glass glass--edge verdict reveal" id="verdictCard">
+        <div class="verdict__badge" id="verdictIcon" aria-hidden="true"></div>
+        <div>
+            <p class="verdict__label">Қорытынды</p>
+            <h1 class="verdict__title" id="verdictTitle"></h1>
+            <p class="verdict__desc" id="verdictDescription"></p>
+        </div>
+        <div class="verdict__count"><span class="verdict__num" id="verdictCount">0</span><span class="verdict__unit">оқиға</span></div>
+    </div>
+
+    <dl class="specs" id="videoMeta" hidden>
+        <div class="glass spec reveal" style="--d:.05s"><dt>Ажыратымдылық</dt><dd id="metaResolution">—</dd></div>
+        <div class="glass spec reveal" style="--d:.1s"><dt>Кадр жиілігі</dt><dd id="metaFps">—</dd></div>
+        <div class="glass spec reveal" style="--d:.15s"><dt>Ұзақтығы</dt><dd id="metaDuration">—</dd></div>
+        <div class="glass spec reveal" style="--d:.2s"><dt>Өңдеу уақыты</dt><dd id="metaElapsed">—</dd></div>
+    </dl>
+
+    <div class="glass timeline reveal" id="timeline" hidden>
+        <div class="timeline__head"><h2 class="h2">Бейне уақыт шкаласы</h2><span class="timeline__legend" id="timelineLegend"></span></div>
+        <div class="timeline__track" id="timelineTrack"><div class="timeline__rail"><i></i></div></div>
+    </div>
+
+    <div class="events" id="violationsList"></div>
+
+    <div class="glass empty reveal" id="noViolationsMsg" hidden>
+        <svg width="30" height="30" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="2"/><path d="m8.5 14.5 3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>Тексерілетін 11 жағдайдың ешқайсысы бейнеде көрінбеді. Бұл басқа бұзушылық жоқ дегенді білдірмейді — жүйе тек тізімдегі белгілерді іздейді.</p>
+    </div>
+
+    <p class="disclaimer">Нәтиже тексерушіге арналған кеңес, заңдық немесе тәртіптік қорытынды емес. Норма дәйексөздері adilet.zan.kz мәтінімен сәйкестендірілген.</p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/results.js"></script>
+{% endblock %}

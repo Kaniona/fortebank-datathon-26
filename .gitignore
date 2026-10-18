@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+.venv/
+env/
+
+# Environment
+.env
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Model weights
+*.pt
+*.onnx
+*.engine
+models/*.pt
+models/*.onnx
+models/*.engine
+
+# Uploads and evidence (runtime data)
+uploads/*
+evidence/*
+!uploads/.gitkeep
+!evidence/.gitkeep
+
+# Dataset
+data/test_videos/
+data/*.mov
+data/*.mp4
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.~lock.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+review/
+models/owlv2-base/
+
+# Кэши и результаты экспериментов (воспроизводятся tools/*)
+cache/
+review/
+data/open/
+data/extra/
+.qodo/

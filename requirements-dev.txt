@@ -1,0 +1,7 @@
+# Разработка, оценка и проверки (в рабочий сервис не входят)
+-r requirements.txt
+pytest==9.1.1
+httpx==0.28.1
+scikit-learn==1.9.1
+bandit==1.9.4
+pip-audit

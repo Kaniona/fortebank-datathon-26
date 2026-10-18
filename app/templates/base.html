@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="kk" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#08070D">
+    <title>{% block title %}Vision Control — ForteBank{% endblock %}</title>
+    <link rel="preload" href="/static/fonts/geologica-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/static/fonts/ibm-plex-sans-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="floor" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="Басты бет">
+            <span class="brand__mark" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M1.5 8S4 3 8 3s6.5 5 6.5 5S12 13 8 13 1.5 8 1.5 8Z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="8" r="2.3" fill="#fff"/></svg>
+            </span>
+            <span class="brand__name">Forte<b>Vision</b></span>
+            <span class="brand__sep" aria-hidden="true">/</span>
+            <span class="brand__product">Кассалық тәртіп аудиті</span>
+        </a>
+        <span class="live" title="Модельдер осы серверде жұмыс істейді, бейне ешқайда жіберілмейді"><i aria-hidden="true"></i>Жергілікті AI</span>
+    </header>
+
+    <main class="shell">
+        {% block content %}{% endblock %}
+        <footer class="footer">
+            <span>ForteBank Datathon 26 · кеңес беретін құрал — соңғы шешім тексерушіде</span>
+            <span>Бейне өңделген соң серверден өшіріледі</span>
+        </footer>
+    </main>
+
+    <script src="/static/js/fx.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
